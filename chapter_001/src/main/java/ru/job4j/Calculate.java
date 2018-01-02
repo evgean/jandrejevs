@@ -10,11 +10,21 @@ package ru.job4j;
 public class Calculate{
 	
 	/**
-	* метод позволяющий вывести "hello world"
-	*@return nothing
+	* метод main позволяющий вывести "hello world"
+	*@param args - args.
 	*/
 	
 	public static void main (String[] args){
 		System.out.println("Hello world of tanks.");
+	}
+	
+	/**
+	*Method echo
+	*@param name Your name
+	*@return Echo plus your name 
+	*/
+	
+	public String echo (String name){
+		return "Echo, echo, echo:" + name;
 	}
 }
