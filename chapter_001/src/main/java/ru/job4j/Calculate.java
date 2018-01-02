@@ -7,14 +7,14 @@ package ru.job4j;
 *@version 1
 */
 
-public class Calculate{
+public class Calculate {
 	
 	/**
 	* метод main позволяющий вывести "hello world"
 	*@param args - args.
 	*/
 	
-	public static void main (String[] args){
+	public static void main(String[] args) {
 		System.out.println("Hello world of tanks.");
 	}
 	
@@ -24,7 +24,7 @@ public class Calculate{
 	*@return Echo plus your name 
 	*/
 	
-	public String echo (String name){
+	public String echo(String name) {
 		return "Echo, echo, echo:" + name;
 	}
 }
