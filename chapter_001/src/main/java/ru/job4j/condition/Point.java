@@ -42,8 +42,8 @@ public class Point {
 		Point newPoint = that;
 
 		int x1 = myPoint.x;
-		int x2 = myPoint.y;
-		int y1 = newPoint.x;
+		int x2 = newPoint.x;
+		int y1 = myPoint.y;
 		int y2 = newPoint.y;
 		
 		double result = Math.sqrt(Math.pow(x2 - x1, 2) + (Math.pow(y2 - y1, 2)));
