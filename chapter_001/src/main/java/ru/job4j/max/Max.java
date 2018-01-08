@@ -23,4 +23,13 @@ public class Max {
 		
 		return resault;
 	}
+	
+	public int max(int first, int second, int third) {
+		int result = -1;
+		
+		result = this.max(first, second);
+		result = this.max(result, third);
+		
+		return result;
+	}
 }

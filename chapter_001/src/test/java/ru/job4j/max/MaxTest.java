@@ -38,4 +38,11 @@ public class MaxTest {
 		int resault = maximum.max(5, 5);
 		assertThat(resault, is(5));
 	}
+	
+	@Test
+	public void whenThreeNumMax() {
+		Max maximum = new Max();
+		int resault = maximum.max(5, 2, 4);
+		assertThat(resault, is(5));
+	}
 }
