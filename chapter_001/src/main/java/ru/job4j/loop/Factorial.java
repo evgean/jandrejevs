@@ -9,20 +9,15 @@ package ru.job4j.loop;
 
 public class Factorial {
 	/**
-	* Метод calc вычисляет фаториал
+	* Метод calc вычисляет факориал
 	*@param n - число которому необходимо вычислить факториал
 	*@return возвращает факториал числа n
 	*/
 	public int calc(int n) {
-		if (n > 0) {
-			int result = 1;
-			for (int i = 1; i <= n; i++) {
-				result = result * i;
-			}
-			return result;
-		} else {
-			return 1;
+		int result = 1;
+		for (int i = 1; i <= n; i++) {
+			result = result * i;
 		}
-		
+		return result;
 	}
 }
