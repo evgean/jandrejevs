@@ -14,15 +14,12 @@ public class Max {
 	
 	public int max(int first, int second) {
 		
-		int resault = (first >= second) ? first : second;
-		return resault;
+		return (first >= second) ? first : second;
 	}
 	
 	public int max(int first, int second, int third) {
 		int result = -1;
 		
-		result = this.max(first, this.max(second, third));
-		
-		return result;
+		return this.max(first, this.max(second, third));
 	}
 }
