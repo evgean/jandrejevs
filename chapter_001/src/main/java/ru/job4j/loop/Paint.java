@@ -9,12 +9,12 @@ package ru.job4j.loop;
 
 public class Paint {
 	/**
-	* Метод repead позволяет повторять сроки нужное количество раз
+	* Метод repeat позволяет повторять сроки нужное количество раз
 	*@param s - это срока которую нужно повторить
 	*@param time - количество повторов
 	*@return - повторенная строка
 	*/
-	public String repead(String s, int time) {
+	public String repeat(String s, int time) {
 		StringBuilder buildS = new StringBuilder();
 		for (int i = 0; i < time; i++) {
 			buildS.append(s);
@@ -31,16 +31,13 @@ public class Paint {
 		StringBuilder scr = new StringBuilder();
 		String lineEnd = System.lineSeparator();
 		
-		//Для использования метода повторения создаем объект класса Paint
-		Paint time = new Paint();
-		
 		//Создаем переменную которая отвечает за увеличение символа "^" в каждой строке
 		int incr = 1;
 		
 		//Создаем цикл который отвечает за количество рядов
 		for (int i = h; i > 0; i--) {
 			//Создаем строку основанную на симетрии пирамиды
-			scr.append(time.repead(" ", (i - 1))).append(time.repead("^", incr)).append(time.repead(" ", (i - 1))).append(lineEnd);
+			scr.append(this.repeat(" ", (i - 1))).append(this.repeat("^", incr)).append(this.repeat(" ", (i - 1))).append(lineEnd);
 			incr = incr + 2;
 		}
 		return scr.toString();
