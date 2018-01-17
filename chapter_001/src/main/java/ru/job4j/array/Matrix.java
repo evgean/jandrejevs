@@ -9,9 +9,9 @@ package ru.job4j.array;
 public class Matrix {
 	public int[][] multiple(int size) {
 		int[][] mult = new int[size][size];
-		for (int column = 0; column != size; column++) {
-			for (int row = 0; row != size; row++) {
-				mult[column][row] = column * row;
+		for (int column = 1; column <= size; column++) {
+			for (int row = 1; row <= size; row++) {
+				mult[column - 1][row - 1] = column * row;
 			}
 		}
 		
