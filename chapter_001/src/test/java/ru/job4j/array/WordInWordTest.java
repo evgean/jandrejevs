@@ -19,7 +19,7 @@ public class WordInWordTest {
         String searchKey = "sdp";
         boolean expected = true;
         boolean rslt = word.contains(source, searchKey);
-        assertThat(expected, is(rslt));;
+        assertThat(rslt, is(expected));;
     }
 
     @Test
