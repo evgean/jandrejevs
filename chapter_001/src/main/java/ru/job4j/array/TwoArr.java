@@ -16,25 +16,23 @@ public class TwoArr {
     public int[] combineArr(int[] arr1, int[] arr2) {
         //создаем массив куда будем складывать числа по возростанию
         int[] combineArr = new int[(arr1.length + arr2.length)];
-        //опрежеляем свободный индекс массива combineArr
-        int combineArrIndex = 0;
-        //определяем с каково индекса нужно будет начинать переберать второго массив если было найдено меньшее число
-        int lastArr2i = 0;
-        for (int arr1i = 0; arr1i <= arr1.length; arr1i++) {
-            for (int arr2i = lastArr2i; arr2i <= arr2.length; arr2i++) {
-                // правда, что второй массив не вышел из ренджа? И (правда первый массив не вышел из ренджа? ИЛИ правда число первого массива боль числа второго?)
-                if (arr2i != arr2.length && (arr1i == arr1.length || arr1[arr1i] >= arr2[arr2i])) {
-                    combineArr[combineArrIndex] = arr2[arr2i];
-                    combineArrIndex++;
-                    lastArr2i++;
+        //создаем индекы для массивов
+        int firstIndex = arr1.length -1, secondIndex = arr2.length - 1, indexNewArr = combineArr.length - 1;
+
+        for (int i = indexNewArr; i >= 0; i--) {
+            if (arr1[firstIndex] > arr2[secondIndex]) {
+                combineArr[i] = arr1[firstIndex];
+                if (firstIndex > 0) {
+                    firstIndex--;
                 } else {
-                    //правда первый массив не вышел из ренджа?
-                    if (arr1i != arr1.length) {
-                        combineArr[combineArrIndex] = arr1[arr1i];
-                        combineArrIndex++;
-                    }
-                    //если первый массив вышел за придел просто выход
-                    break;
+                    arr1[0] = arr2[0];
+                }
+            } else {
+                combineArr[i] = arr2[secondIndex];
+                if (secondIndex > 0) {
+                    secondIndex--;
+                } else {
+                    arr2[0] = arr1[0];
                 }
             }
         }
