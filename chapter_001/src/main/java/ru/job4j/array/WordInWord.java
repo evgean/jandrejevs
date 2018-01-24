@@ -9,39 +9,28 @@ package ru.job4j.array;
 public class WordInWord {
 
     public boolean contains(String origin, String sub) {
-        int charArrayLength = origin.length() + sub.length();
-        int originLength = origin.length();
-        char [] charArray = new char [charArrayLength];
-        // то, что возращает метод
+        char [] originArr = new char [origin.length()];
+        char [] subArr = new char [sub.length()];
         boolean answer = false;
-        //записывает в массивы символы из двух строк
-        for (int index = 0; index != charArrayLength; index++) {
-            if (index < originLength) {
-                charArray[index] = origin.charAt(index);
-            } else {
-                charArray[index] = sub.charAt(index - originLength);
-            }
+
+        for (int i = 0; i < origin.length(); i++) {
+            originArr[i] = origin.charAt(i);
         }
-        //проверяем есть ли первая буква искомого слова в сраке
-        for (int i = 0; i < originLength; i++) {
-            //необходима проверка, что бы лишний раз не запускать цикл
-            if (answer) {
-                break;
-                //находим совпадение.
-            } else if (charArray[i] == charArray[originLength]) {
-                //повторно запускаем цикл проверяя подрят стоящии символы на равенство
-                for (int index = originLength; index < charArrayLength; index++) {
-                    //если длина массива кончилась или хотя бы один символ не совпадает выходим из цикла
-                    if (charArray[index] != charArray[i + (index - originLength)]) {
-                        answer = false;
-                        break;
-                    }
-                    //если не одно условие выше не выполнилось - ответ true
-                    answer = true;
+        for (int i = 0; i < sub.length(); i++) {
+            subArr[i] = sub.charAt(i);
+        }
+
+        for (int out = 0; out < (originArr.length - subArr.length) + 1; out++) {
+            int count = 0;
+            for (int in = 0; in < subArr.length; in++) {
+                if (subArr[in] == originArr[out + in]) {
+                    count++;
+                    if (count == subArr.length) {
+                        answer = true;
                     }
                 }
             }
-
-        return answer;
         }
+        return answer;
+    }
 }
