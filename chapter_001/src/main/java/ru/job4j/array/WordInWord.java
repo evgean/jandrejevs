@@ -21,6 +21,9 @@ public class WordInWord {
         }
 
         for (int out = 0; out < (originArr.length - subArr.length) + 1; out++) {
+            if (out == (originArr.length - subArr.length) + 1) {
+                break;
+            }
             int count = 0;
             for (int in = 0; in < subArr.length; in++) {
                 if (subArr[in] == originArr[out + in]) {
