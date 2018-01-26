@@ -8,19 +8,22 @@ public class Teacher extends Profession {
     }
 
     public double giveGrade(Learner learner) {
-        double mark = Math.random() * 10;
-        return mark;
+        return Math.random() * 10;
     }
 
     public String classTeacher(Learner learner, Teacher teacher) {
+        String answer = "Learner do not have teacher";
         if (learner.classTeacher != null) {
-            return learner.classTeacher;
-        } else {
-            return "Learner do not have teacher";
+            answer = learner.classTeacher;
         }
+        return answer;
     }
 
     public boolean claimSalary(Principal principal, double amount) {
-        return (principal.moneyAmount > amount);
+        boolean answer = false;
+        if (principal.goodMood) {
+            answer = (principal.moneyAmount > amount);
+        }
+        return answer;
     }
 }

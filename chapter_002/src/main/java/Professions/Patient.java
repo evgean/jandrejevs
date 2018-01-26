@@ -9,11 +9,11 @@ public class Patient {
     private int money = 100;
 
     public boolean pay(Doctor doctor) {
+        boolean isPayed = false;
         if (doctor.payment <= this.money) {
             this.money = this.money - doctor.payment;
-            return true;
-        } else {
-            return false;
+            isPayed = true;
         }
+        return isPayed;
     }
 }

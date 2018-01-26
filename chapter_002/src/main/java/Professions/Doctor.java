@@ -3,16 +3,18 @@ package Professions;
 public class Doctor extends Profession{
     private int age;
     private String typeOf;
-    int payment = 10;
+    int payment = 110;
     private String problemToSolve;
 
-    public boolean heal(Patient pacient){
+    public boolean heal(Patient pacient) {
+        boolean isHealed = false;
         if (pacient.pay(this)) {
             double healing = Math.random();
-            return (healing > 0.5);
-        } else {
-            return false;
+            if (healing > 0.5) {
+                isHealed = true;
+            }
         }
+        return isHealed;
     }
 
     public void ask(Patient pacient) {
