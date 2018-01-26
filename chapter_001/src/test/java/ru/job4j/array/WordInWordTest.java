@@ -15,11 +15,11 @@ public class WordInWordTest {
     @Test
     public void whenWordInBeginning() {
         WordInWord word = new WordInWord();
-        String source = "asdplwevmewfjcwajnd123123123";
+        String source = "asdplwevmewfjcwajnsdpd123123123";
         String searchKey = "sdp";
         boolean expected = true;
         boolean rslt = word.contains(source, searchKey);
-        assertThat(rslt, is(expected));;
+        assertThat(rslt, is(expected));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class WordInWordTest {
         String searchKey = "12";
         boolean expected = false;
         boolean rslt = word.contains(source, searchKey);
-        assertThat(expected, is(rslt));;
+        assertThat(expected, is(rslt));
     }
 
     @Test
@@ -39,6 +39,6 @@ public class WordInWordTest {
         String searchKey = "1234";
         boolean expected = true;
         boolean rslt = word.contains(source, searchKey);
-        assertThat(expected, is(rslt));;
+        assertThat(expected, is(rslt));
     }
 }

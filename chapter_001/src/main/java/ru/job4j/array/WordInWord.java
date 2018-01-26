@@ -9,8 +9,8 @@ package ru.job4j.array;
 public class WordInWord {
 
     public boolean contains(String origin, String sub) {
-        char [] originArr = new char [origin.length()];
-        char [] subArr = new char [sub.length()];
+        char[] originArr = new char[origin.length()];
+        char[] subArr = new char[sub.length()];
         boolean answer = false;
 
         for (int i = 0; i < origin.length(); i++) {
@@ -21,19 +21,26 @@ public class WordInWord {
         }
 
         for (int out = 0; out < (originArr.length - subArr.length) + 1; out++) {
-            if (out == (originArr.length - subArr.length) + 1) {
-                break;
-            }
             int count = 0;
             for (int in = 0; in < subArr.length; in++) {
                 if (subArr[in] == originArr[out + in]) {
                     count++;
                     if (count == subArr.length) {
                         answer = true;
+                        System.out.println(count);
+                        out = (originArr.length - subArr.length) + 1;
+                        break;
                     }
                 }
             }
         }
         return answer;
+    }
+
+    public static void main(String[] args) {
+        WordInWord word = new WordInWord();
+        String source = "asdplwevmewfjcwajnsdpd123123123";
+        String searchKey = "sdp";
+        word.contains(source, searchKey);
     }
 }
