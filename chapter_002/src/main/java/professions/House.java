@@ -1,4 +1,4 @@
-package Professions;
+package professions;
 
 public class House {
     int serialNum;

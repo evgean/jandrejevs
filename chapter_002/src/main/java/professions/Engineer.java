@@ -1,4 +1,4 @@
-package Professions;
+package professions;
 
 public class Engineer extends Profession {
     private int age;

@@ -1,4 +1,4 @@
-package Professions;
+package professions;
 
 public class Principal {
     String name;

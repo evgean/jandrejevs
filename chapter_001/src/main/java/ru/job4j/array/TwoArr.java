@@ -17,7 +17,7 @@ public class TwoArr {
         //создаем массив куда будем складывать числа по возростанию
         int[] combineArr = new int[(arr1.length + arr2.length)];
         //создаем индекы для массивов
-        int firstIndex = arr1.length -1, secondIndex = arr2.length - 1, indexNewArr = combineArr.length - 1;
+        int firstIndex = arr1.length - 1, secondIndex = arr2.length - 1, indexNewArr = combineArr.length - 1;
 
         for (int i = indexNewArr; i >= 0; i--) {
             if (arr1[firstIndex] > arr2[secondIndex]) {

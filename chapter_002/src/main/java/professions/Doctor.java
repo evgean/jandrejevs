@@ -1,6 +1,6 @@
-package Professions;
+package professions;
 
-public class Doctor extends Profession{
+public class Doctor extends Profession {
     private int age;
     private String typeOf;
     int payment = 110;
