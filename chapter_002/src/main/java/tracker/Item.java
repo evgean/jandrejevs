@@ -18,8 +18,16 @@ public class Item {
         return this.name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return this.description;
+    }
+
+    public void setDescription(String desc) {
+        this.description = desc;
     }
 
     public String getId() {

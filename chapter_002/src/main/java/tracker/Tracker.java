@@ -7,9 +7,10 @@ public class Tracker {
     private int position = 0;
     private static final Random RN = new Random();
 
-    public void add(Item item) {
+    public Item add(Item item) {
         item.setId(generateId());
         this.items[this.position++] = item;
+        return item;
     }
 
     public void replace(String id, Item item) {
@@ -21,18 +22,17 @@ public class Tracker {
         }
     }
 
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean answer = false;
         for (int index = 0; index < this.position; index++) {
             if (this.items[index] != null && this.items[index].getId().equals(id)) {
                 System.arraycopy(this.items, index + 1, this.items, index, this.position - index);
-//                this.items[index] = null;
                 this.position--;
-//                for (int i = index; i < this.position; i++) {
-//                    this.items[i] = this.items[i + 1];
-//                }
                 this.items[this.position] = null;
+                answer = true;
             }
         }
+        return answer;
     }
 
     public Item[] findAll() {
