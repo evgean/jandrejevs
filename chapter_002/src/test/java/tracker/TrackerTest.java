@@ -28,24 +28,15 @@ public class TrackerTest {
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item1 = new Item("test1", "testDescription", 123L);
-        Item item2 = new Item("test2", "testDescription2", 124L);
-        Item item3 = new Item("test3", "testDescription3", 125L);
         tracker.add(item1);
-        tracker.add(item2);
-        tracker.add(item3);
-        tracker.delete(item2.getId());
-        assertThat(tracker.findAll().length, is(2));
-        assertThat(tracker.findAll()[1].getName(), is(item3.getName()));
+        tracker.delete(item1.getId());
+        assertThat(tracker.findAll().length, is(0));
     }
 
     @Test
     public void whenFindByNameItem() {
         Tracker tracker = new Tracker();
-        Item item1 = new Item("test1", "testDescription", 123L);
-        Item item2 = new Item("test2", "testDescription2", 124L);
         Item item3 = new Item("test3", "testDescription3", 125L);
-        tracker.add(item1);
-        tracker.add(item2);
         tracker.add(item3);
         Item[] newArr = tracker.findByName(item3.getName());
         assertThat(newArr[0].getId(), is(item3.getId()));
@@ -54,11 +45,7 @@ public class TrackerTest {
     @Test
     public void whenFindByIdItem() {
         Tracker tracker = new Tracker();
-        Item item1 = new Item("test1", "testDescription", 123L);
-        Item item2 = new Item("test2", "testDescription2", 124L);
         Item item3 = new Item("test3", "testDescription3", 125L);
-        tracker.add(item1);
-        tracker.add(item2);
         tracker.add(item3);
         Item newItem = tracker.findById(item3.getId());
         assertThat(newItem.getName(), is(item3.getName()));

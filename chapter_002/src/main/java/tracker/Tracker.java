@@ -1,5 +1,6 @@
 package tracker;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Tracker {
@@ -52,7 +53,7 @@ public class Tracker {
                 rsltIndex++;
             }
         }
-        return rslt;
+        return Arrays.copyOf(rslt, rsltIndex);
     }
 
     public Item findById(String id) {
@@ -69,6 +70,7 @@ public class Tracker {
     private String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
+
 }
 
 
