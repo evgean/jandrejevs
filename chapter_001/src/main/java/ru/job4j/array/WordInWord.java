@@ -21,17 +21,17 @@ public class WordInWord {
             subArr[i] = sub.charAt(i);
         }
 
-        for (int out = 0; out <= (originArr.length - subArr.length) + 1; out++) {
+        for (int out = 0; out < (originArr.length - subArr.length) + 1; out++) {
+            count = 0;
+            for (int in = 0; in < subArr.length; in++) {
+                if (subArr[in] == originArr[out + in]) {
+                    count++;
+                    System.out.println(subArr[in]);
+                }
+            }
             if (count == subArr.length) {
                 answer = true;
                 break;
-            } else {
-                count = 0;
-                for (int in = 0; in < subArr.length; in++) {
-                    if (subArr[in] == originArr[out + in]) {
-                        count++;
-                    }
-                }
             }
         }
         return answer;
