@@ -2,7 +2,7 @@ package tracker;
 
 import java.util.Scanner;
 
-public class ConsoleInput implements Input{
+public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
 
     public String ask(String question) {

@@ -66,7 +66,7 @@ public class Actions {
             String answer2 = this.input.ask("Choose number form menu: ");
             if (answer2.equals("0")) {
                 String name = this.input.ask("Previous name: " + answer.getName() + ". Enter new name: ");
-                if (name.equals("")){
+                if (name.equals("")) {
                     System.out.println("You need to enter something to change name");
                 } else {
                     answer.setName(name);
@@ -74,7 +74,7 @@ public class Actions {
                 }
             } else if (answer2.equals("1")) {
                 String desc = this.input.ask("Enter new description: ");
-                if (desc.equals("")){
+                if (desc.equals("")) {
                     System.out.println("You need to enter something to change description");
                 } else {
                     answer.setDescription(desc);

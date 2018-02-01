@@ -1,13 +1,13 @@
 package tracker;
 
 public class StartUI {
-    private static final String menuAdd = "0";
-    private static final String menuShow = "1";
-    private static final String menuEdit = "2";
-    private static final String menuDelete = "3";
-    private static final String menuFBI = "4";
-    private static final String menuFBN = "5";
-    private static final String menuExit = "6";
+    private static final String MENU_ADD = "0";
+    private static final String MENU_SHOW = "1";
+    private static final String MENU_EDIT = "2";
+    private static final String MENU_DELETE = "3";
+    private static final String MENU_FBI = "4";
+    private static final String MENU_FBN = "5";
+    private static final String MENU_EXIT = "6";
 
     private final Actions action;
 
@@ -18,21 +18,21 @@ public class StartUI {
     private void init() {
         boolean exit = false;
 
-        while(!exit) {
+        while (!exit) {
             String answer = this.action.statAction();
-            if (answer.equals(menuAdd)) {
+            if (answer.equals(MENU_ADD)) {
                 this.action.createItem();
-            } else if (answer.equals(menuShow)) {
+            } else if (answer.equals(MENU_SHOW)) {
                 this.action.showItem();
-            } else if (answer.equals(menuEdit)) {
+            } else if (answer.equals(MENU_EDIT)) {
                 this.action.editItem();
-            } else if (answer.equals(menuDelete)) {
+            } else if (answer.equals(MENU_DELETE)) {
                 this.action.deleteItem();
-            } else if (answer.equals(menuFBI)) {
+            } else if (answer.equals(MENU_FBI)) {
                 this.action.findByIdItem();
-            } else if (answer.equals(menuFBN)) {
+            } else if (answer.equals(MENU_FBN)) {
                 this.action.findByNameItem();
-            } else if (answer.equals(menuExit)) {
+            } else if (answer.equals(MENU_EXIT)) {
                 this.action.endAction();
                 exit = true;
             }
