@@ -11,11 +11,11 @@ public class StartUI {
 
     private final Actions action;
 
-    private StartUI(Actions action) {
+    StartUI(Actions action) {
         this.action = action;
     }
 
-    private void init() {
+    void init() {
         boolean exit = false;
 
         while (!exit) {
