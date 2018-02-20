@@ -20,7 +20,7 @@ public class TrackerTest {
         Item item2 = new Item("test2", "testDescription2", 124L);
         tracker.add(item);
         tracker.add(item2);
-        tracker.replace(item2.getId(), item);
+        tracker.replace(item2.getId(), item.getName(), item.getDescription());
         assertThat(tracker.findAll()[1].getName(), is(item.getName()));
     }
 

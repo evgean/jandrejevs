@@ -14,10 +14,11 @@ public class Tracker {
         return item;
     }
 
-    public void replace(String id, Item item) {
+    public void replace(String id, String name, String desc) {
         for (int index = 0; index < this.position; index++) {
             if (this.items[index] != null && this.items[index].getId().equals(id)) {
-                this.items[index] = item;
+                this.items[index].setName(name);
+                this.items[index].setDescription(desc);
                 break;
             }
         }

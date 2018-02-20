@@ -11,6 +11,14 @@ public class Actions {
         this.input = input;
     }
 
+    public Input getInput() {
+        return this.input;
+    }
+
+    public Tracker getTracker() {
+        return this.tracker;
+    }
+
     String statAction() {
         System.out.println();
         this.decoration.greeting();

@@ -16,27 +16,22 @@ public class StartUI {
     }
 
     void init() {
-        boolean exit = false;
-
-        while (!exit) {
-            String answer = this.action.statAction();
-            if (answer.equals(MENU_ADD)) {
-                this.action.createItem();
-            } else if (answer.equals(MENU_SHOW)) {
-                this.action.showItem();
-            } else if (answer.equals(MENU_EDIT)) {
-                this.action.editItem();
-            } else if (answer.equals(MENU_DELETE)) {
-                this.action.deleteItem();
-            } else if (answer.equals(MENU_FBI)) {
-                this.action.findByIdItem();
-            } else if (answer.equals(MENU_FBN)) {
-                this.action.findByNameItem();
-            } else if (answer.equals(MENU_EXIT)) {
-                this.action.endAction();
-                exit = true;
+        MenuTracker menu = new MenuTracker(action.getInput(), action.getTracker());
+        menu.fillAction();
+        Boolean loop = true;
+        do {
+            menu.show();
+            int key = Integer.valueOf(action.getInput().ask("Select: "));
+            if (key != 7) {
+                menu.select(key);
+                if ("y".equals(action.getInput().ask("Do you want exit?(y): "))) {
+                    loop = false;
+                }
+            } else {
+                loop = false;
             }
-        }
+
+        } while (loop);
     }
 
 
