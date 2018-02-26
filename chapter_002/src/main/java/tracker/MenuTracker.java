@@ -1,5 +1,43 @@
 package tracker;
 
+//outer classes
+class EditItem implements UserAction {
+    public int key() {
+        return 3;
+    }
+
+    public void execute(Input input, Tracker tracker) {
+        String id = input.ask("Please enter the ID: ");
+        String name = input.ask("Please enter the Name: ");
+        String desc = input.ask("Please enter the descriprion: ");
+        tracker.replace(id, name, desc);
+    }
+
+    public String info() {
+        return String.format("%s. %s", this.key(), "Edit item.");
+    }
+}
+
+class FindIBI implements UserAction {
+    public int key() {
+        return 5;
+    }
+
+    public void execute(Input input, Tracker tracker) {
+        String id = input.ask("Please enter the ID: ");
+        Item item = tracker.findById(id);
+        if (item != null) {
+            System.out.println(String.format("ID: %s, Name: %s, Desc: %s", item.getId(), item.getName(), item.getDescription()));
+        } else {
+            System.out.println("Do not found item");
+        }
+    }
+
+    public String info() {
+        return String.format("%s. %s", this.key(), "Find item by Id.");
+    }
+}
+
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
@@ -71,23 +109,6 @@ public class MenuTracker {
         }
     }
 
-    private class EditItem implements UserAction {
-        public int key() {
-            return 3;
-        }
-
-        public void execute(Input input, Tracker tracker) {
-            String id = input.ask("Please enter the ID: ");
-            String name = input.ask("Please enter the Name: ");
-            String desc = input.ask("Please enter the descriprion: ");
-            tracker.replace(id, name, desc);
-        }
-
-        public String info() {
-            return String.format("%s. %s", this.key(), "Edit item.");
-        }
-    }
-
     private static class DeleteItem implements UserAction {
         public int key() {
             return 4;
@@ -108,26 +129,6 @@ public class MenuTracker {
 
         public String info() {
             return String.format("%s. %s", this.key(), "Delete item.");
-        }
-    }
-
-    private static class FindIBI implements UserAction {
-        public int key() {
-            return 5;
-        }
-
-        public void execute(Input input, Tracker tracker) {
-            String id = input.ask("Please enter the ID: ");
-            Item item = tracker.findById(id);
-            if (item != null) {
-                System.out.println(String.format("ID: %s, Name: %s, Desc: %s", item.getId(), item.getName(), item.getDescription()));
-            } else {
-                System.out.println("Do not found item");
-            }
-        }
-
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find item by Id.");
         }
     }
 
