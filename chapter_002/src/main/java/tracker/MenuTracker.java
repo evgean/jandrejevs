@@ -42,6 +42,7 @@ public class MenuTracker {
     private Input input;
     private Tracker tracker;
     private UserAction[] action = new UserAction[7];
+    public boolean exit = false;
 
     public MenuTracker(Input input, Tracker trakcer) {
         this.input = input;
@@ -156,13 +157,13 @@ public class MenuTracker {
         }
     }
 
-    private static class ExitApp implements UserAction {
+    private class ExitApp implements UserAction {
         public int key() {
             return 7;
         }
 
         public void execute(Input input, Tracker tracker) {
-
+            exit = true;
         }
 
         public String info() {

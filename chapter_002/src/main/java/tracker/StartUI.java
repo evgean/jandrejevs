@@ -11,32 +11,38 @@ public class StartUI {
 
     private final Actions action;
 
+    private int[] ranges = new int[Integer.parseInt(MENU_EXIT) + 1];
+
     StartUI(Actions action) {
         this.action = action;
     }
 
     void init() {
         MenuTracker menu = new MenuTracker(action.getInput(), action.getTracker());
+        for (int i = 0; i < this.ranges.length; i++) {
+            ranges[i] = i + 1;
+        }
         menu.fillAction();
-        Boolean loop = true;
+//        Boolean loop = true;
         do {
             menu.show();
-            int key = Integer.valueOf(action.getInput().ask("Select: "));
-            if (key != 7) {
-                menu.select(key);
-                if ("y".equals(action.getInput().ask("Do you want exit?(y): "))) {
-                    loop = false;
-                }
-            } else {
-                loop = false;
-            }
+//            int key = Integer.valueOf(action.getInput().ask("Select: "));
+            menu.select(this.action.getInput().ask("Select: ", ranges));
+//            if (key != 7) {
+//                menu.select(key);
+//                if ("y".equals(action.getInput().ask("Do you want exit?(y): "))) {
+//                    loop = false;
+//                }
+//            } else {
+//                loop = false;
+//            }
 
-        } while (loop);
+        } while (!"y".equals(action.getInput().ask("Do you want exit?(y): ")));
     }
 
 
 
     public static void main(String[] args) {
-        new StartUI(new Actions(new Decoration(), new Tracker(), new ConsoleInput())).init();
+        new StartUI(new Actions(new Decoration(), new Tracker(), new ValidateInput())).init();
     }
 }
